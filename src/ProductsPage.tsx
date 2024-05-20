@@ -1,6 +1,7 @@
 // ProductsPage.tsx
 import * as React from "react";
 import { IProduct, products } from "./ProductsData";
+import { Link } from "react-router-dom";
 
 interface IState {
   products: IProduct[];
@@ -28,7 +29,7 @@ class ProductsPage extends React.Component<{}, IState> {
         <ul className="product-list">
           {this.state.products.map((product) => (
             <li key={product.id} className="product-list-item">
-              {product.name}
+              <Link to={`/products/${product.id}`}>{product.name}</Link>
             </li>
           ))}
         </ul>
